@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:background="@color/purple_200"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            style="@style/MyAppbarLayout"
+            android:background="@color/white">
+
+            <com.google.android.material.appbar.MaterialToolbar style="@style/MyMaterialToolbar">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/btn_back"
+                        style="@style/MyCostumToolbarImage"
+                        android:src="@drawable/mygzn_keyboard_arrow_left"
+                        android:tag="CostumToolbarImage" />
+
+                    <TextView
+                        android:id="@+id/tv_toolbar"
+                        style="@style/MyCostumToolbarTitle"
+                        android:text="Notification" />
+
+                </LinearLayout>
+            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout style="@style/MyParentType.List">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshLayout"
+                style="@style/swipeRefreshLayoutV1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv"
+                        style="@style/LLEmptyStateRV"
+                        android:visibility="gone"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_notifikasi"
+                        tools:visibility="visible" />
+
+                    <LinearLayout
+                        android:id="@+id/imgEmpty"
+                        style="@style/LLEmptyState"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+                        <ImageView
+                            style="@style/LLEmptyStateImage"
+                            android:src="@drawable/img_no_data_v3" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
